@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+    min-height: 100vh;
+    background-color: #fafafa;
+  }
+  
+  * {
+    @apply box-border;
+  }
+}
+
+@layer components {
+  .note-card {
+    @apply rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+  
+  .note-card:hover {
+    @apply border-gray-300;
+  }
+  
+  .masonry-grid {
+    column-count: 1;
+    column-gap: 1rem;
+    
+    @screen sm {
+      column-count: 2;
+    }
+    
+    @screen md {
+      column-count: 3;
+    }
+    
+    @screen lg {
+      column-count: 4;
+    }
+    
+    @screen xl {
+      column-count: 5;
+    }
+  }
+  
+  .masonry-item {
+    @apply mb-4;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .sidebar-item {
+    @apply flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors duration-150;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-primary-50 text-primary-700 border-r-2 border-primary-500;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-500 text-white px-4 py-2 rounded-md hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-150;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors duration-150;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 transition-colors duration-150;
+  }
+  
+  .checkbox-item {
+    @apply flex items-center space-x-2 py-1;
+  }
+  
+  .checkbox-item input[type="checkbox"] {
+    @apply w-4 h-4 text-primary-600 rounded border-gray-300 focus:ring-primary-500;
+  }
+  
+  .checkbox-item.completed {
+    @apply opacity-60;
+  }
+  
+  .checkbox-item.completed span {
+    @apply line-through;
+  }
+  
+  .toast-notification {
+    @apply bg-white border border-gray-200 rounded-md shadow-lg p-4 text-sm;
+  }
+  
+  .toast-notification.success {
+    @apply border-green-200 bg-green-50 text-green-800;
+  }
+  
+  .toast-notification.error {
+    @apply border-red-200 bg-red-50 text-red-800;
+  }
+  
+  .toast-notification.warning {
+    @apply border-yellow-200 bg-yellow-50 text-yellow-800;
+  }
+  
+  .ai-chat-message {
+    @apply mb-4 animate-fade-in;
+  }
+  
+  .ai-chat-message.user {
+    @apply flex justify-end;
+  }
+  
+  .ai-chat-message.assistant {
+    @apply flex justify-start;
+  }
+  
+  .ai-chat-bubble {
+    @apply max-w-xs lg:max-w-md px-4 py-2 rounded-lg text-sm;
+  }
+  
+  .ai-chat-bubble.user {
+    @apply bg-primary-500 text-white rounded-br-sm;
+  }
+  
+  .ai-chat-bubble.assistant {
+    @apply bg-gray-100 text-gray-800 rounded-bl-sm;
+  }
+  
+  .loading-spinner {
+    @apply animate-spin rounded-full border-2 border-gray-300 border-t-primary-500;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .break-anywhere {
+    overflow-wrap: anywhere;
+  }
+}
